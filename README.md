@@ -36,7 +36,7 @@ Create and maintain a site to support and promote the Drupal Austrlia community 
 	
 # How to get involved
 
-* See [discussion thread posted](http://groups.drupal.org/australia/node/XXX) after DrupalCamp Melb 
+* See [discussion thread posted](https://groups.drupal.org/node/491403) after DrupalCamp Melb 
 * Join the slack channel <http://drupal-au.slack.com>
 * Follow this github project <http://github.org/drupal-au/drupal.org.au>
 * 
