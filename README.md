@@ -21,7 +21,7 @@ Create and maintain a site to support and promote the Drupal Austrlia community 
 		2. Local Groups 
 		3. Any national-level links/info
 			1. http://groups.drupal.org/australia
-			2. irc://freenode:#drupal-au
+			2. irc://irc.freenode.net/drupal-au
 			3. etc
 2. General Site
 	1. User Personas / User Research
