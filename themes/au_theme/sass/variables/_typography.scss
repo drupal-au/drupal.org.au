@@ -1,0 +1,54 @@
+
+// scss-lint:disable ColorKeyword, ColorVariable, SpaceAfterComma
+//
+// Typography: Font faces, stacks and sizes.
+//
+
+// The font size set on the root html element.
+$base-font-size:        18px;
+
+$font-size: (
+  xxxl:           46px,
+  xxl:            32px,
+  xl:             24px,
+  l:              $base-font-size,
+  m:              17px,
+  s:              15px,
+  xs:             12px,
+  base:           $base-font-size,
+);
+
+// These values represent the range of font sizes to apply.
+// These values effect the base font-size, headings and other elements will scale proportionally.
+$min-font-size: 14;
+$max-font-size: 18;
+
+// The minimum and maximum viewport sizes to apply the font scaling.
+$min-font-width: 480;
+$max-font-width: 1350;
+
+// The base line height determines the basic unit of vertical rhythm.
+$base-line-height:      30px;
+
+// The length unit in which to output font size and margin values.
+// Supported values: px, em, rem.
+$base-unit:         'rem';
+$rem-fallback:      true;
+
+// Font families
+$body-font:         'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-font:      'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$decorative-font:   $heading-font;
+
+// Monospace font stacks.
+// For an explanation of why "sans-serif" is at the end of this list, see
+// http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+$font-monospace:    Menlo, 'DejaVu Sans Mono', 'Ubuntu Mono', Courier, 'Courier New', monospace, sans-serif;
+
+
+// Font Weights
+$font-weight: (
+  bold:    700,
+  normal:  400,
+  light:   300
+);

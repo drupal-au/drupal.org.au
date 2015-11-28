@@ -1,0 +1,994 @@
+/**
+ * @file
+ * Normalize.css is intended to be used as an alternative to CSS resets.
+ *
+ * This file is a slight fork of these original sources:
+ * - normalize.css v3.0.2 | MIT License | git.io/normalize
+ * - normalize.scss v3.0.2 | MIT/GPLv2 License | bit.ly/normalize-scss
+ *
+ * It's suggested that you read the normalize.scss file and customise it to meet
+ * your needs, rather then including the file in your project and overriding the
+ * defaults later in your CSS.
+ * @see http://nicolasgallagher.com/about-normalize-css/
+ *
+ * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ *       @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+
+// scss-lint:disable Indentation
+
+// Set the font size of :root so all relative units will be proportionate to this.
+// @see http://madebymike.com.au/writing/precise-control-responsive-typography/
+
+// Set the minimum font size.
+:root {
+  font-size: #{$min-font-size}px;
+}
+
+// Between the defined breakpoints use calc() to scale font size between the defined range.
+@media (min-width: #{$min-font-width}px) and (max-width: #{$max-font-width}px) {
+  :root {
+    font-size: calc(#{$min-font-size}px + (#{$max-font-size} - #{$min-font-size}) * ((100vw - #{$min-font-width}px) / (#{$max-font-width} - #{$min-font-width})));
+  }
+}
+
+// Set the maximum font size.
+@media (min-width: #{$max-font-width}px) {
+  :root {
+    font-size: #{$max-font-size}px;
+  }
+}
+
+* { @include box-sizing(border-box); }
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  @include define-type-sizing();
+  font-family: $body-font; /* 1 */
+  font-weight: weight(normal);
+  // scss-lint:disable VendorPrefix
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: color(base-font-color);
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  @if support-legacy-browser(ie, '9') {
+    display: inline-block; /* 1 */
+  }
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+@if support-legacy-browser(ie, '10') {
+  /**
+   * Address `[hidden]` styling not present in IE 8/9/10.
+   */
+
+  [hidden] {
+    display: none;
+  }
+}
+
+/**
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+template {
+  display: none;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+// Text-level semantics
+//
+// Markup: text.hbs
+//
+// Weight: 1
+//
+// Style guide: base.text
+
+// Abbreviation / Acroynym
+//
+// Stylized implementation of HTML's <code>&lt;abbr&gt;</code> element for
+// abbreviations and acronyms to show the expanded version on hover.
+// Abbreviations with a <code>title</code> attribute have a light dotted bottom
+// border and a help cursor on hover, providing additional context on hover.
+//
+// Markup: text-abbr.hbs
+//
+// Style guide: base.text.abbr
+
+abbr[title] {
+ // Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ border-bottom: 1px dotted;
+
+ @media print {
+   // Add visible title after abbreviations.
+   &:after {
+     content: ' (' attr(title) ')';
+   }
+ }
+}
+
+// Bold
+//
+// For emphasizing a snippet of text with a heavier font-weight. Either the
+// &lt;strong&gt; tag or the &lt;b&gt; tag can be used.
+//
+// Feel free to use <code>&lt;b&gt;</code> in HTML5. <code>&lt;b&gt;</code> is
+// meant to highlight words or phrases without conveying additional importance.
+//
+// Markup: text-b.hbs
+//
+// Style guide: base.text.b
+
+b,
+strong {
+ // Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ font-weight: weight(bold);
+}
+
+// Cite
+//
+// The cite element represents a reference to a creative work.
+//
+// Markup: text-cite.hbs
+//
+// Style guide: base.text.cite
+
+cite {
+ // Add your styles.
+}
+
+// Code
+//
+// The <code>code</code> element represents a fragment of computer code. The
+// <code>var</code> element represents a variable. The <code>samp</code> element
+// represents (sample) output from a program or computing system. The
+// <code>kbd</code> element represents user input (typically keyboard input.)
+//
+// Markup: text-code.hbs
+//
+// Style guide: base.text.code
+
+code,
+kbd,
+samp,
+var {
+ @extend %monospace;
+}
+
+// Deleted text
+//
+// For indicating blocks of text that have been deleted use the
+// <code>&lt;del&gt;</code> tag.
+//
+// Markup: text-del.hbs
+//
+// Style guide: base.text.del
+
+del {
+ // Add your styles.
+}
+
+// Definition
+//
+// The dfn element represents the defining instance of a term.
+//
+// Markup: text-dfn.hbs
+//
+// Style guide: base.text.dfn
+
+dfn {
+ // Address styling not present in Safari and Chrome.
+ font-style: italic;
+}
+
+// Italics
+//
+// For emphasizing a snippet of text with italics. Either the &lt;em&gt; tag or
+// the &lt;i&gt; tag can be used.
+//
+// Feel free to use <code>&lt;i&gt;</code> in HTML5. <code>&lt;i&gt;</code> is
+// meant to convey voice, technical terms, etc.
+//
+// Markup: text-i.hbs
+//
+// Style guide: base.text.i
+
+i,
+em {
+ // Add your styles.
+}
+
+// Inserted text
+//
+// For indicating additions to the document use the <code>&lt;ins&gt;</code>
+// tag.
+//
+// Markup: text-ins.hbs
+//
+// Style guide: base.text.ins
+
+ins {
+ // Add your styles.
+}
+
+// Marked text
+//
+// For highlighting a run of text due to its relevance in another context, use
+// the <code>&lt;mark&gt;</code> tag.
+//
+// Markup: text-mark.hbs
+//
+// Style guide: base.text.mark
+
+@if support-legacy-browser(ie, '9') {
+ mark {
+   // Address styling not present in IE 8/9.
+   background: color(black);
+   color: color(white);
+ }
+}
+
+// Quote
+//
+// The <code>q</code> element represents an inline quote from another source.
+// Longer quotes should use the <code>blockquote</code> element.
+//
+// Markup: text-q.hbs
+//
+// Style guide: base.text.q
+
+q {
+ // Add your styles.
+}
+
+// Strikethrough text
+//
+// For indicating blocks of text that are no longer relevant use the
+// <code>&lt;s&gt;</code> tag.
+//
+// Markup: text-s.hbs
+//
+// Style guide: base.text.s
+
+s {
+ // Add your styles.
+}
+
+// Small text
+//
+// For de-emphasizing inline or blocks of text, use the
+// <code>&lt;small&gt;</code> tag to set text at 80% the size of the parent.
+//
+// Markup: text-small.hbs
+//
+// Style guide: base.text.small
+
+small {
+ // Address inconsistent and variable font size in all browsers.
+ font-size: 80%;
+}
+
+// Superscript / Subscript
+//
+// The &lt;sup&gt; tag represents a superscript and the &lt;sub&gt; tag
+// represents a subscript.
+//
+// Markup: text-sub.hbs
+//
+// Style guide: base.text.sub
+
+sub,
+sup {
+ // Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ font-size: 75%;
+ line-height: 0;
+ position: relative;
+ vertical-align: baseline;
+}
+
+sup {
+ top: -.5em;
+}
+
+sub {
+ bottom: -.25em;
+}
+
+// Underlined text
+//
+// To underline text use the <code>&lt;u&gt;</code> tag. Not recommended since
+// underlines are used by web browsers to style hyperlinks.
+//
+// Markup: text-u.hbs
+//
+// Style guide: base.text.u
+
+u {
+ // Add your styles.
+}
+
+/* Grouping content
+   ========================================================================== */
+
+// Grouping content
+//
+// Weight: 1
+//
+// Style guide: base.grouping
+
+// Blockquotes
+//
+// For quoting blocks of content from another source within your document. Wrap
+// <code>&lt;blockquote&gt;</code> around any <abbr
+// title="HyperText Markup Language">HTML</abbr> as the quote. For straight
+// quotes, we recommend a <code>&lt;p&gt;</code>.
+//
+// Optionally, add a <code>&lt;footer&gt;</code> to identify the source of the
+// quote. Wrap the name of the source work in <code>&lt;cite&gt;</code>.
+//
+// Markup: grouping-blockquote.hbs
+//
+// Style guide: base.grouping.blockquote
+
+blockquote {
+ // Set 1 unit of vertical rhythm on the top and bottom margin.
+ // Also indent the quote on both sides.
+ @include margin(2 0);
+ @include type-layout(xl, 1.2);
+ @include padding-left(2);
+ font-style: italic;
+ background: none;
+ background-repeat: no-repeat;
+ background-image: url('../sass/base/blockquote-icon.png');
+
+ .svg & {
+   background-image: url('../sass/base/blockquote-icon.svg');
+ }
+}
+
+// Figures
+//
+// The element can thus be used to annotate illustrations, diagrams, photos,
+// code listings, etc.
+//
+// Optionally, a &lt;figcaption&gt; element inside the &lt;figure&gt; represents
+// the caption of the figure.
+//
+// Markup: grouping-figure.hbs
+//
+// Style guide: base.grouping.figure
+
+figure {
+ // Address margin not present in IE 8/9 and Safari.
+ @include margin(1 0);
+}
+
+figcaption {
+ // Add your styles.
+}
+
+// Horizontal rule
+//
+// The hr element represents a paragraph-level thematic break, e.g. a scene
+// change in a story, or a transition to another topic within a section of a
+// reference book.
+//
+// Markup: grouping-hr.hbs
+//
+// Style guide: base.grouping.hr
+
+hr {
+  // Address differences between Firefox and other browsers.
+  @include box-sizing(content-box);
+  @include margin(2 0);
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  border-top: 1px solid color(border-color);
+  height: 0;
+}
+
+// Body copy
+//
+// The default <code>font-size</code> and <code>line-height</code> are applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a top and bottom margin.</p>
+//
+// Markup: grouping-p.hbs
+//
+// Style guide: base.grouping.p
+
+p,
+pre {
+ // Set 1 unit of vertical rhythm on the top and bottom margin.
+ @include margin(.5 0);
+}
+
+// Preformatted text
+//
+// The &lt;pre&gt; tag represents a block of preformatted text, such as
+// fragments of computer code, ASCII art, etc.
+//
+// Markup: grouping-pre.hbs
+//
+// Style guide: base.grouping.pre
+
+%monospace {
+ // Address odd `em`-unit font size rendering in all browsers.
+ // The value of $font-monospace ends with ", serif".
+ font-family: $font-monospace;
+ @if support-legacy-browser(ie, '6') {
+   _font-family: 'courier new', monospace;
+ }
+ font-size: 1em;
+}
+
+pre {
+ @extend %monospace;
+ // Contain overflow in all browsers.
+ overflow: auto;
+}
+
+// Lists
+//
+// Style guide: base.grouping.lists
+
+// Unordered list
+//
+// A list of items in which the order does <em>not</em> explicitly matter.
+//
+// Markup: grouping-lists-ul.hbs
+//
+// Style guide: base.grouping.lists.ul
+
+// Ordered list
+//
+// A list of items in which the order <em>does</em> explicitly matter.
+//
+// Markup: grouping-lists-ol.hbs
+//
+// Style guide: base.grouping.lists.ol
+
+// Description list
+//
+// A list of terms with their associated descriptions.
+//
+// Markup: grouping-lists-dl.hbs
+//
+// Style guide: base.grouping.lists.dl
+ul {
+ list-style-type: disc;
+}
+
+ol {
+ list-style-type: decimal;
+
+ ol {
+   list-style-type: lower-alpha;
+ }
+}
+
+dl,
+menu,
+ol,
+ul {
+ // Address margins set differently in IE 6/7.
+ @include margin(.5 0 1);
+}
+
+// Turn off margins on nested lists.
+ol,
+ul {
+ ol,
+ ul {
+   @include margin(.5 0);
+   @include padding(0 0 0 1.5);
+ }
+}
+
+dt {
+ // Add your styles.
+}
+
+dd {
+ @include margin(0 0 0 1);
+}
+
+// Address paddings set differently in IE 6/7.
+menu,
+ol,
+ul {
+  @include padding(0 0 0 1);
+}
+
+// Correct list images handled incorrectly in IE 7.
+@if support-legacy-browser(ie, '7') {
+ nav ul,
+ nav ol {
+   list-style: none;
+   list-style-image: none;
+ }
+}
+
+.floatleft {
+ @include margin(5px 1 1 0);
+ float: left;
+}
+
+.floatright {
+ @include margin(5px 0 1 1);
+ float: right;
+}
+
+
+/* Forms
+   ========================================================================== */
+
+// Forms
+//
+// Weight: 2
+//
+// Styleguide: base.forms
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 4. Address `font-family` inconsistency between `textarea` and other form in IE 7
+ * 5. Improve appearance and consistency with IE 6/7.
+ * 6. Keep form elements constrained in their containers.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+  max-width: 100%; /* 6 */
+  //@include box-sizing(border-box); /* 6 */
+}
+
+// Buttons
+//
+// Buttons built with the &lt;button&gt; tag are the most flexible for styling
+// purposes. But &lt;input&gt; tags with <code>type</code> set to
+// <code>submit</code>, <code>image</code>, <code>reset</code>, or
+// <code>button</code> are also supported.
+//
+// Markup: forms-button.hbs
+//
+// Styleguide: base.forms.button
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+// Inputs
+//
+// Input fields are mostly text-based inputs that include the HTML5 types:
+// <code>text</code>, <code>search</code>, <code>tel</code>, <code>url</code>,
+// <code>email</code>, <code>password</code>, <code>date</code>,
+// <code>time</code>, <code>number</code>, <code>range</code>,
+// <code>color</code>, and <code>file</code>.
+//
+// Markup: forms-input.hbs
+//
+// Styleguide: base.forms.input
+
+input,
+%input {
+  height: $input-height;
+  line-height: $input-height;
+  padding: 0 11px;
+
+  &:focus,
+  &.is-focus,
+  &-is-focus {
+    outline: 0;
+  }
+
+  &[type="color"],
+  &--no-padding {
+    padding: 0;
+  }
+
+  &[type="text"],
+  &[type="search"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="email"],
+  &[type="password"],
+  &[type="date"],
+  &[type="time"],
+  &[type="number"],
+  &[type="range"],
+  &--wide {
+    @extend %form__input;
+    width: 100%;
+
+    @include breakpoint($medium) {
+      width: auto;
+    }
+  }
+}
+
+// Checkboxes
+//
+// If an &lt;input&gt; element has the <code>type="checkbox"</code> attribute
+// set, the form field is displayed as a checkbox.
+//
+// Markup: forms-input-checkbox.hbs
+//
+// Styleguide: base.forms.input-checkbox
+
+// Radio buttons
+//
+// If an &lt;input&gt; element has the <code>type="radio"</code> attribute
+// set, the form field is displayed as a radio button.
+//
+// Markup: forms-input-radio.hbs
+//
+// Styleguide: base.forms.input-radio
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  height: auto;
+  padding: 0; /* 2 */
+}
+
+input[type="radio"] {
+  margin-left: 1px;
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  //  @include box-sizing(content-box); /* 2 */
+
+  /**
+   * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+   * Safari (but not Chrome) clips the cancel button when the search input has
+   * padding (and `textfield` appearance).
+   */
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+// Fieldsets
+//
+// The fieldset element groups a set of form fields, optionally under a common
+// name given by the legend element.
+//
+// Markup: forms-fieldset.hbs
+//
+// Styleguide: base.forms.fieldset
+
+fieldset {
+  /* Define consistent border, margin, and padding. */
+  margin: 0 2px 1em 0;
+  padding: 0;
+  border: 0;
+}
+
+// Labels
+//
+// The &lt;label&gt; tag represents a caption of a form field. The label can be
+// associated with a specific form control by using the <code>for</code>
+// attribute or by putting the form control inside the label element itself.
+//
+// Markup: forms-label.hbs
+//
+// Styleguide: base.forms.label
+
+label {
+  @extend %form__label;
+  display: block;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+  @extend %form__title;
+  border: 0;
+  margin-left: -5px;
+  padding: 0 5px; /* 2 */
+
+  a:link,
+  a:visited,
+  a:active,
+  a:hover,
+  a:focus {
+    color: inherit;
+  }
+}
+
+// Select
+//
+// The &lt;select&gt; tag represents a form field for selecting amongst a set of
+// options.
+//
+// Markup: forms-select.hbs
+//
+// Styleguide: base.forms.select
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+select {
+  height: $input-height;
+  padding: 0 11px;
+  margin-left: 1px;
+  text-transform: none;
+
+  &[multiple] {
+    height: auto;
+  }
+
+}
+
+
+// Text areas
+//
+// The &lt;textarea&gt; tag represents a multiline plain text form field.
+//
+// Markup: forms-textarea.hbs
+//
+// Styleguide: base.forms.textarea
+
+textarea {
+  @extend %form__input;
+  /* Remove default vertical scrollbar in IE 8/9/10/11. */
+  overflow: auto;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+
+  option {
+  }
+}
+
+/* Embedded content
+   ========================================================================== */
+
+// Embedded content
+//
+// Weight: 2
+//
+// Style guide: base.embedded
+
+// Image
+//
+// An &lt;img&gt; tag represents an image.
+//
+// Markup: embedded-img.hbs
+//
+// Style guide: base.embedded.img
+
+img {
+ @if support-legacy-browser(ie, '10') {
+   // Remove border when inside `a` element in IE 8/9/10.
+   border: 0;
+ }
+ @if support-legacy-browser(ie, '7') {
+   // Improve image quality when scaled in IE 7.
+   -ms-interpolation-mode: bicubic;
+ }
+}
+
+img,
+svg {
+ // Suppress the space beneath the baseline
+ // vertical-align: bottom;
+
+ // Responsive images
+ max-width: 100%;
+ height: auto;
+ @if support-legacy-browser(ie, '8') {
+   // Correct IE 8 not scaling image height when resized.
+   width: auto;
+ }
+}
+
+// Scalable vector
+//
+// A &lt;svg&gt; tag represents an image encoded as a Scalable Vector Graphic.
+//
+// Markup: embedded-svg.hbs
+//
+// Style guide: base.embedded.svg
+
+svg:not(:root) {
+ // Correct overflow not hidden in IE 9/10/11.
+ overflow: hidden;
+}
+
+
+/* Tables
+   ========================================================================== */
+
+// Tables
+//
+// The table element displays tabular data in rows, columns, and cells.
+//
+// Markup: tables-table.hbs
+//
+// Weight: 2
+//
+// Style guide: base.table
+
+table {
+ // Add vertical rhythm margins.
+ @include margin(1 0);
+
+ // Remove most spacing between table cells.
+ border-collapse: collapse;
+ border-spacing: 0;
+
+ // Prevent cramped-looking tables
+ width: 100%;
+
+ // General styles.
+ background: color(grey--light);
+ font-family: $decorative-font;
+}
+
+td,
+th {
+ text-align: left;
+ padding: 11px 22px;
+}
+
+th {
+ font-weight: weight(bold);
+ font-size: 20px;
+ border-right: 1px solid color(border-color);
+
+ thead & {
+   border-right: 0;
+   border-bottom: 1px solid color(border-color);
+ }
+}

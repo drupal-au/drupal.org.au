@@ -1,0 +1,13 @@
+// Hides the text content of an element.
+// @see http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-color: transparent;
+
+  &:hover,
+  &:focus {
+    border-color: transparent;
+  }
+}

@@ -1,0 +1,43 @@
+// List Inline
+//
+// Markup: list-inline.html
+//
+// Styleguide 3.26
+
+%list-inline,
+.list-inline {
+  margin: 0;
+  padding: 0;
+
+  &__wrapper {
+    &,
+    ul,
+    ol {
+      @extend %list-inline;
+    }
+  }
+
+  &__item,
+  li {
+    @include margin(0 1 1 0);
+    list-style: none;
+    display: inline-block;
+
+    &--even-padding {
+      @extend %list-inline__item;
+      @include margin(.5);
+    }
+  }
+
+  &--even-padding {
+    @extend %list-inline;
+
+    li {
+      @extend %list-inline__item--even-padding;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

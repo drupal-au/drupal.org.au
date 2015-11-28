@@ -1,0 +1,19 @@
+// Controls the colour of the links border on hover.
+@mixin underline-on-hover {
+  text-decoration: none;
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: transparent;
+
+  &:hover,
+  &:focus {
+    border-color: currentColor;
+  }
+}
+
+@mixin underline-on-hover--off {
+  &:hover,
+  &:focus {
+    border-color: transparent;
+  }
+}

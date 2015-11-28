@@ -1,0 +1,75 @@
+// Form elements
+//
+// Styling for the specific form elements
+//
+// Markup: form.html
+//
+// Styleguide: components.form
+
+%form,
+.form {
+  @extend %layout-max;
+  @extend %spacer--large;
+}
+
+%form__title,
+.form__title {
+  @extend %h3;
+  color: color(base-font-color);
+}
+
+%form__label,
+.form__label {
+  font-weight: 500;
+  color: color(black);
+}
+
+.form__label-inline,
+%form__label-inline {
+  font-weight: 300;
+  display: inline;
+}
+
+.form__label-required,
+%form__label-required {
+  color: color(brand-contrast);
+}
+
+%form__input,
+.form__input {
+  @include single-box-shadow(0, 2px, 2px, 0, darken(color(grey--off-white), 5%), true);
+  border: 1px solid color(grey--light);
+  background-color: color(grey--off-white);
+
+  @include input-placeholder {
+    // scss-lint:disable ImportantRule
+    color: color(grey--light) !important;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: color(link-color--focus);
+  }
+
+  &.has-error {
+    border-color: color(brand-contrast);
+  }
+}
+
+%form__textarea,
+.form__textarea {
+  @extend %form__input;
+}
+
+%form__item,
+.form__item {
+  @extend %spacer--bottom;
+  max-width: $medium;
+}
+
+%form__item-inline,
+.form__item-inline {
+  @include margin(0 2 0 0);
+  display: inline-block;
+}

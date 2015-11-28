@@ -1,0 +1,24 @@
+name: Drupal AU Theme
+description: Drupal 8 Theme for the Drupal Australia community site
+
+type: theme
+version: 1.x
+core: 8.x
+
+libraries:
+ - au_theme/base
+
+regions:
+ content: Content
+ featured: Featured
+ content_secondary: 'Secondary content'
+ content_tertiary: 'Tertiary content'
+ header: Header
+ footer: Footer
+ menu: 'Main Menu'
+ help: Help
+ page_top: 'Page top'
+ page_bottom: 'Page bottom'
+
+stylesheets-remove:
+  - @classy/css/components/menu.css

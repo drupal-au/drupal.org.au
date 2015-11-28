@@ -1,0 +1,30 @@
+// Layout
+//
+
+// The following Sass functions are required to generate some variables' values,
+// so we load them first.
+@import 'breakpoint';
+@import 'singularitygs';
+
+// Breakpoints
+$small:           breakpoint-to-base-em(480px);
+$medium:          breakpoint-to-base-em(760px);
+$large:           breakpoint-to-base-em(1100px);
+$small-end:       max-width (760px - 1px);
+$medium-end:      max-width (960px - 1px);
+$breakpoint-to-ems:     true;
+
+// Setup our grid system
+@include add-grid(1);
+@include add-grid(6 at $small);
+@include add-grid(12 at $medium);
+
+@include add-gutter(.25);
+@include add-gutter(1/3 at $small);
+
+// Spacing units
+$base-spacing-unit:   rhythm(1);
+$half-spacing-unit:   rhythm(.5);
+
+$default-box-sizing:  'border-box';
+$input-height:        45px;

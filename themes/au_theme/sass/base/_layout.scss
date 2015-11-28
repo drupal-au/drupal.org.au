@@ -1,0 +1,14 @@
+// Layout
+//
+
+*,
+*:before,
+*:after {
+  @include box-sizing;
+}
+
+html {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100%;
+}

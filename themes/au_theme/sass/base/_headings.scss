@@ -1,0 +1,67 @@
+// Headings
+//
+// All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>,
+// are available. <code>%h1</code> through <code>%h6</code> classes are also
+// available, for when you want to match the font styling of a heading but still
+// want your text to be displayed inline.
+//
+// Markup: headings-h.hbs
+//
+// Style guide: base.headings
+
+@include headings(1, 6) {
+  @include font-heading;
+  @include margin(1 0);
+  color: color(heading-color);
+
+  a {
+    @extend %underline-on-hover;
+    text-decoration: none;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  small {
+    color: color(grey--light);
+  }
+}
+
+// Specific headings
+// scss-lint:disable SingleLinePerSelector
+h1, .h1, %h3 {
+  @include type-layout(xxxl, 2.2);
+  margin-top: 0;
+  color: color(title-color);
+}
+
+h2, .h2, %h2 {
+  @include type-layout(xxl, 1.4);
+  @include font-decorative;
+}
+
+h3, .h3, %h3 {
+  @include type-layout(xl, 1);
+}
+
+h4, .h4, %h4 {
+  @include type-layout(l, 1);
+}
+
+h5, .h5, %h5 {
+  @include type-layout(s, 1);
+}
+
+h6, .h6, %h6 {
+  @include type-layout(xs, 1);
+}
+
+// Set the colour for highlighted text
+::selection {
+  background-color: color(brand-primary);
+  color: color(white);
+}
+
+::moz-selection {
+  background-color: color(brand-primary);
+  color: color(white);
+}

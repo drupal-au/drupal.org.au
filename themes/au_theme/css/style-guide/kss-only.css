@@ -1,0 +1,24 @@
+[id^="kssref-layouts-"] [class^="layout-"][class*="__"] {
+  outline: 1px dotted #404040;
+}
+
+.wrap-demo {
+  padding: 20px;
+}
+@media (min-width: 47.5em) {
+  .wrap-demo {
+    background-color: #0a4ab1;
+  }
+}
+
+.demo-bg {
+  padding-top: 60px;
+  background: #0a4ab1;
+  position: relative;
+}
+@media (min-width: 47.5em) {
+  .demo-bg {
+    background: none;
+    padding: 0;
+  }
+}

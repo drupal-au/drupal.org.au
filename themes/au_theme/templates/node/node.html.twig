@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * display a node.
+ */
+#}
+<article id="node-{{ node.id }}" class="{{ attributes.class}} clearfix"{{ attributes }} role="article">
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h3{{ title_attributes }}>
+      <a href="{{ node_url }}">{{ label }}</a>
+    </h3>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <div class="meta submitted">
+      {{ user_picture }}
+      {{ submitted }}
+    </div>
+  {% endif %}
+
+  {# We hide links now so that we can render them later. #}
+  {#{% hide(content.links) %}#}
+  {{ content }}
+
+  {% if content.links %}
+    <div class="link-wrapper">
+      {{ content.links }}
+    </div>
+  {% endif %}
+
+</article>

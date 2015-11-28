@@ -1,0 +1,7 @@
+%footer,
+.footer {
+  @include padding(2 0);
+  @include type-layout(s, 1);
+  clear: both;
+  color: color(footer-color);
+}

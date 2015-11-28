@@ -1,0 +1,16 @@
+// Header
+//
+// Styling for the global header
+//
+// Markup: header.html
+//
+// Styleguide components.header
+
+%header,
+.header {
+
+  &__logo {
+    display: block;
+    max-width: 150px;
+  }
+}
