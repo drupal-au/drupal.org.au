@@ -1,0 +1,40 @@
+// Spacer
+//
+// Markup: spacer.html
+//
+// Styleguide components.spacer
+
+%spacer,
+.spacer {
+  @include padding(1);
+
+  &--top {
+    @include padding(1 0 0);
+  }
+
+  &--bottom {
+    @include padding(0 0 1);
+  }
+
+  &--medium {
+    @include padding(1);
+    @include breakpoint($medium) {
+      @include padding(2);
+    }
+  }
+
+  &--large {
+    @include padding(1);
+    @include breakpoint($large) {
+      @include padding(3);
+    }
+  }
+
+  &--vertical {
+    @include padding(1 0);
+  }
+
+  &--horizontal {
+    @include padding(0 1);
+  }
+}

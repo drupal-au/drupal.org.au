@@ -1,0 +1,54 @@
+// Colors
+//
+// Use the <code>color()</code> function to add colors to CSS properties.
+//
+// Markup: chroma-kss-markup.hbs
+//
+// Weight: -1
+//
+// Style guide: sass.colors
+
+// scss-lint:disable SpaceAfterComma
+
+// The following Sass functions are required to generate some variables' values,
+// so we load them first.
+@import 'chroma/functions';
+
+// Define descriptive names of color values.
+$chroma: define-default-color-scheme('Descriptive color names for use in "functional" color names below.');
+$chroma: add-colors((
+  // Base Colors
+  white:             #fff,
+  black:             #111,
+  grey--off-white:   #ebebeb,
+  grey--dark:        #222,
+  grey--mid:         #404040,
+  grey--light:       #808080,
+
+  // Brand Colors
+  brand-primary:    'black',
+  brand-secondary:  'grey--mid',
+  brand-contrast:   #0a4ab1,
+));
+
+// Define color names for functional/semantic uses.
+$chroma: define-color-scheme('functional', 'Colors used by functional parts of the design.');
+$chroma: add-colors('functional', (
+  // Colors used in the main content area.
+  body-background-color:     'white',
+  base-font-color:           'grey--dark',
+
+  border-color:              'grey--light',
+  border-color--featured:    'brand-primary',
+
+  title-color:               'brand-primary',
+  heading-color:             'brand-primary',
+
+  link-color:                'brand-contrast',
+  link-color--focus:         'link-color',
+  link-color--visited:       'link-color',
+
+  footer-color:              'grey--mid',
+));
+
+$chroma-active-scheme: 'functional';

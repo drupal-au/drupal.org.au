@@ -1,0 +1,12 @@
+.element-invisible,
+%element-invisible {
+  @include element-invisible;
+
+  &--focusable {
+    @include element-invisible;
+    &:active,
+    &:focus {
+      @include element-invisible-off;
+    }
+  }
+}

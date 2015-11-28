@@ -1,0 +1,29 @@
+@import 'init';
+
+// This file is used to add styles to the style guide and is not included in
+// the Drupal site. It gets included by the style guide by adding it to the
+// "css" array in kss-config.json.
+
+// Add an outline to every grid item in the style guide.
+[id^="kssref-layouts-"] [class^="layout-"][class*="__"] {
+  outline: 1px dotted color(grey--mid);
+}
+
+.wrap-demo {
+  padding: 20px;
+
+  @include breakpoint($medium) {
+    background-color: color(link-color);
+  }
+}
+
+.demo-bg {
+  padding-top: 60px;
+  background: color(link-color);
+  position: relative;
+
+  @include breakpoint($medium) {
+    background: none;
+    padding: 0;
+  }
+}

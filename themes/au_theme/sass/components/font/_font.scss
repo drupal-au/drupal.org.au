@@ -1,0 +1,41 @@
+// Font
+//
+// Variations on size and line height for any text.
+//
+// Markup: font.hbs
+//
+// .font__large   - Larger than medium but not as big as a heading.
+// .font__medium  - Larger than base font size.
+// .font__small   - Smaller thank base font size.
+//
+// Styleguide: components.font
+
+%font__large,
+.font__large {
+  @include font-size(xl);
+  @include line-height(1.2);
+
+  @include breakpoint($large) {
+    @include font-size(xxl);
+    @include line-height(1.4);
+  }
+}
+
+%font__medium,
+.font__medium {
+  @include font-size(xl);
+  @include line-height(1.2);
+}
+
+%font__small,
+.font__small {
+  @include font-size(s);
+  @include line-height(1);
+  color: color(grey--dark);
+}
+
+
+// Fugly.
+.description {
+  @extend %font__small;
+}

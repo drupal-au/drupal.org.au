@@ -1,0 +1,49 @@
+{#
+/**
+ * @file display a single page.
+ */
+#}
+<div class="layout-max">
+
+  <header role="banner" class="spacer--vertical">
+    {{ page.header }}
+  </header>
+
+  {{ page.menu }}
+
+  {% if page.featured %}
+  <div class="featured">
+    {{ page.featured }}
+  </div>
+  {% endif %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="spacer--bottom">
+      <h1>{{ title }}</h1>
+
+      {{ page.content }}
+    </div>{# /.l-content #}
+
+    {% if page.content_secondary %}
+    <div class="l-content">
+      {{ page.content_secondary }}
+    </div>
+    {% endif %}
+
+    {% if page.content_tertiary %}
+    <div class="l-content">
+      {{ page.content_tertiary }}
+    </div>
+    {% endif %}
+
+  </main>
+
+  <footer role="contentinfo">
+    {{ page.footer }}
+
+    <p>Drupal is a <a href="http://drupal.com/trademark" target="_blank">registered trademark</a> of <a href="http://buytaert.net/" target="_blank">Dries Buytaert</a>.</p>
+  </footer>
+
+</div>{# /.l-container #}

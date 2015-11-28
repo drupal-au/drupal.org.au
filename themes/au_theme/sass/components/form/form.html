@@ -1,0 +1,80 @@
+<form class="form">
+  <fieldset>
+    <legend class="form__title">Form legend</legend>
+
+    <div class="form__item">
+      <label class="form__label">Text</label>
+      <input type="text" placeholder="Enter some text">
+    </div>
+
+    <div class="form__item">
+      <label class="form__label">Required Text <span class="form__label__required">(mandatory)</span></label>
+      <input type="text" placeholder="Enter some text">
+    </div>
+
+    <div class="form__item">
+      <label class="form__label">Required Text with Error <span class="form__label__required">(mandatory)</span></label>
+      <input type="text" placeholder="Enter some text" class="has-error">
+    </div>
+
+    <div class="form__item">
+      <label class="form__label--inline"><input type="checkbox"> Single checkbox</label>
+    </div>
+
+    <div class="form__item">
+      <label class="form__label">Checkbox set</label>
+
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="checkbox"> Option one</label>
+      </div>
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="checkbox"> Option two</label>
+      </div>
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="checkbox"> Option three</label>
+      </div>
+    </div>
+
+    <div class="form__item">
+      <label class="form__label">Radio set</label>
+
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="radio"> Option one</label>
+      </div>
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="radio"> Option two</label>
+      </div>
+      <div class="form__item--inline">
+        <label class="form__label--inline"><input type="radio"> Option three</label>
+      </div>
+    </div>
+
+    <div class="form__item">
+      <label class="form__label">Text area</label>
+      <textarea rows="3"></textarea>
+    </div>
+
+    <fieldset class="form__group--top-arrow">
+
+      <div class="form__item">
+        <label class="form__label">Grouped fields</label>
+
+        <div class="form__item--inline">
+          <label class="form__label--inline"><input type="radio"> Option one</label>
+        </div>
+        <div class="form__item--inline">
+          <label class="form__label--inline"><input type="radio"> Option two</label>
+        </div>
+        <div class="form__item--inline">
+          <label class="form__label--inline"><input type="radio"> Option three</label>
+        </div>
+      </div>
+
+      <div class="form__item">
+        <label class="form__label--inline"><input type="checkbox"> Single checkbox</label>
+      </div>
+
+    </fieldset>
+
+  </fieldset>
+</form>

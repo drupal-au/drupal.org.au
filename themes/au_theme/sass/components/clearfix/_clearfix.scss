@@ -1,0 +1,16 @@
+// Clearfix
+//
+// Markup: clearfix.html
+//
+// Styleguide components.clearfix
+
+.clearfix,
+%clearfix {
+  @include clearfix();
+
+  &__overflow {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+  }
+}

@@ -1,0 +1,55 @@
+// Typography
+//
+
+// Font-family mixins
+@mixin font-regular {
+  font-family: $body-font;
+  font-weight: weight(normal);
+  font-style: normal;
+}
+
+@mixin font-heading {
+  font-family: $heading-font;
+  font-weight: weight(bold);
+  font-style: normal;
+}
+
+@mixin font-decorative {
+  font-family: $decorative-font;
+  font-weight: weight(normal);
+  font-style: normal;
+}
+
+// Font-style mixins
+@mixin font-bold {
+  font-weight: weight(bold);
+  font-style: normal;
+}
+
+@mixin font-italic {
+  font-weight: weight(normal);
+  font-style: italic;
+}
+
+// Style any number of headings in one fell swoop, e.g.:
+//
+//  .foo{
+//    @include headings(1, 3){
+//      color:#BADA55;
+//    }
+//  }
+//  Outputs heading and heading class
+//
+@mixin headings($from: 1, $to: 6) {
+  %base-heading {
+    @content
+  }
+
+  @if $from >= 1 and $to <= 6 {
+    @for $i from $from through $to {
+      h#{$i}, .h#{$i}, %h#{$i} {
+        @extend %base-heading;
+      }
+    }
+  }
+}

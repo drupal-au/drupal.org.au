@@ -1,0 +1,24 @@
+// Layout Max
+//
+// Markup: layout-max.hbs
+//
+// Styleguide layouts.layout-max
+
+
+%layout-max,
+.layout-max {
+  @extend %clearfix;
+  max-width: $large;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+
+  @include breakpoint($medium) {
+    padding: 0;
+  }
+
+  &--medium {
+    @extend %layout-max;
+    max-width: $medium;
+  }
+}

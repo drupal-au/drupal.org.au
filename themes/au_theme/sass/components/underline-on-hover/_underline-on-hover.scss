@@ -1,0 +1,20 @@
+// Underline-on-hover
+//
+// Markup: underline-on-hover.html
+//
+// Styleguide components.underline-on-hover
+
+.underline-on-hover,
+%underline-on-hover {
+  @include underline-on-hover;
+
+  &__wrapper {
+    a {
+      @extend %underline-on-hover;
+    }
+  }
+
+  &__never {
+    @include underline-on-hover--off;
+  }
+}
