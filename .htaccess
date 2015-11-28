@@ -105,7 +105,19 @@ AddEncoding gzip svgz
   # RewriteCond %{HTTP_HOST} .
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
   # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-  #
+
+  # Canonical hostname rewrite.
+  RewriteCond %{ENV:PLATFORM} ^production$
+  RewriteCond %{HTTP_HOST} !^drupal\.org\.au [NC]
+  RewriteRule ^.*$ https://drupal.org.au%{REQUEST_URI} [R=permanent,L]
+
+  # Enforce SSL.
+  <IfModule mod_ssl.c>
+    RewriteCond %{ENV:PLATFORM} ^production$
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=permanent,L]
+  </IfModule>
+
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/foo will be redirected to http://example.com/foo)
   # uncomment the following:
