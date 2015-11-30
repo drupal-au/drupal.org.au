@@ -13,7 +13,7 @@ use Drupal\Core\Url;
 /**
 * Implements hook_theme_suggestions_block_alter().
 */
-function au_theme_theme_suggestions_block_alter(&$hooks, $vars) {
+function drupalau_theme_theme_suggestions_block_alter(&$hooks, $vars) {
  if ($vars['elements']['#configuration']['provider'] === 'block_content') {
    $hooks[] = 'block__block_content__' . $vars['elements']['content']['#block_content']->bundle();
  }
@@ -22,7 +22,7 @@ function au_theme_theme_suggestions_block_alter(&$hooks, $vars) {
 /**
  * Implements hook_preprocess_breadcrumb().
  */
-function au_theme_base_preprocess_breadcrumb(&$vars) {
+function drupalau_theme_base_preprocess_breadcrumb(&$vars) {
   $route = \Drupal::routeMatch()->getRouteObject();
   $title = \Drupal::service('title_resolver')
     ->getTitle(\Drupal::request(), $route);

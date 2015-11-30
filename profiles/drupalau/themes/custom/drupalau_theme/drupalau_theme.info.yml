@@ -1,4 +1,4 @@
-name: Drupal AU Theme
+name: DrupalAU Theme
 description: Drupal 8 Theme for the Drupal Australia community site
 
 type: theme
@@ -6,7 +6,7 @@ version: 1.x
 core: 8.x
 
 libraries:
- - au_theme/base
+ - drupalau_theme/base
 
 regions:
  content: Content

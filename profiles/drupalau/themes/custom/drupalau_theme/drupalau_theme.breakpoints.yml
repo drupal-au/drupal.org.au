@@ -1,10 +1,10 @@
-au_theme.mobile:
+drupalau_theme.mobile:
   label: mobile
   mediaQuery: '(min-width: 0em)'
   weight: 0
   multipliers:
     - 1x
-au_theme.wide:
+drupalau_theme.wide:
   label: wide
   mediaQuery: 'screen and (min-width: 40em)'
   weight: 1
