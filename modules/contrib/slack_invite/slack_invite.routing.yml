@@ -1,0 +1,7 @@
+slack_invite.settings:
+  path: '/admin/config/services/slack-invite'
+  defaults:
+    _form: 'Drupal\slack_invite\Form\SlackInviteSettingsForm'
+    _title: 'Slack Invite Settings'
+  requirements:
+    _permission: 'administer slack invite'
