@@ -1,0 +1,6 @@
+name: DrupalAU core module
+type: module
+description: Drupal 8 core module for the Drupal Australia community site
+package: Core
+version: VERSION
+core: 8.x
