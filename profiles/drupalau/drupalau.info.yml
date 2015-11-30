@@ -1,0 +1,11 @@
+name: DrupalAU
+type: profile
+description: 'Build a custom site without pre-configured functionality. Suitable for advanced users.'
+version: VERSION
+core: 8.x
+distribution:
+  name: DrupalAU
+dependencies:
+  - drupalau_core
+themes:
+  - drupalau_theme
