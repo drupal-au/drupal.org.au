@@ -57,6 +57,11 @@
   }
 }
 
+%form__select,
+.form__select {
+  @extend %form__input;
+}
+
 %form__textarea,
 .form__textarea {
   @extend %form__input;
@@ -72,4 +77,16 @@
 .form__item-inline {
   @include margin(0 2 0 0);
   display: inline-block;
+}
+
+
+// Fugly selector.
+.form-item {
+  @extend %form__item;
+}
+.field--widget-options-buttons .form-item {
+  @extend %form__item-inline
+}
+.field--widget-options-buttons legend {
+  @extend %form__label;
 }

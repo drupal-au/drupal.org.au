@@ -850,6 +850,7 @@ legend {
  */
 
 select {
+  @extend %form__select;
   height: $input-height;
   padding: 0 11px;
   margin-left: 1px;

@@ -31,7 +31,7 @@
 .font__small {
   @include font-size(s);
   @include line-height(1);
-  color: color(grey--dark);
+  color: color(grey--mid);
 }
 
 
