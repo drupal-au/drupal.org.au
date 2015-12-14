@@ -84,9 +84,17 @@
 .form-item {
   @extend %form__item;
 }
-.field--widget-options-buttons .form-item {
-  @extend %form__item-inline
-}
-.field--widget-options-buttons legend {
-  @extend %form__label;
+.field--widget-options-buttons {
+  legend {
+    @extend %form__label;
+    @include font-size(m);
+    @include line-height(1.2);
+    @include margin(0 0 .25);
+  }
+  .form-item {
+    @extend %form__item-inline;
+  }
+  label {
+    @extend %form__label-inline;
+  }
 }
