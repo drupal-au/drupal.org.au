@@ -1,11 +1,15 @@
-# The services of the project.
-#
-# Each service listed will be deployed
-# to power your Platform.sh project.
+mysql:
+  type: mysql:10.2
+  disk: 2048
+  configuration:
+    schemas:
+      - drupal
+    endpoints:
+      drupal:
+        default_schema: drupal
+        privileges:
+          drupal: admin
 
-mysqldb:
-    type: mysql:10.2
-    disk: 2048
 #
 #rediscache:
 #    type: redis:3.2

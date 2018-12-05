@@ -1,0 +1,24 @@
+ahoyapi: v2
+usage: Useful shizzle
+commands:
+  install:
+    usage: Installs dependencies (drupal, patternlab)
+    cmd: |
+      composer install
+      composer install -d ./docroot/themes/custom/autheme/patternlab
+      cd ./docroot/themes/custom/autheme/patternlab && npm install
+  ccex:
+    usage: Exports remote config locally, ready to commit
+    cmd: lando drush "sql-sync @prod @self --yes" && lando drush "cex --yes"
+  sync:
+    usage: Syncs the prod database to your local
+    cmd: |
+      lando drush "--yes sql-sync @prod @self"
+      lando drush "--yes rsync @prod:sites/default/files/ @self:sites/default/files"
+      lando drush cr
+  build-styleguide:
+    usage: Syncs the prod database to your local
+    cmd: composer generate -d ./docroot/themes/custom/acmatheme/patternlab
+  dev-styleguide:
+    usage: Start development server for pattern lab
+    cmd: cd ./docroot/themes/custom/acmatheme/patternlab & gulp start

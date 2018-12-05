@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/weitzman/drupal-test-traits/src/bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    verbose="true"
+    convertErrorsToExceptions="false">
+    <php>
+        <ini name="memory_limit" value="-1"/>
+        <env name="DTT_BASE_URL" value="http://drupal-org-au.lndo.site"/>
+        <env name="DTT_API_URL" value="http://chrome:9222"/>
+        <env name="DTT_MINK_DRIVER_ARGS" value="['firefox', null, 'http://selenium:4444/wd/hub']"/>
+        <env name="BROWSERTEST_OUTPUT_DIRECTORY" value=""/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+    </php>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./web/modules/custom/*/tests/src/Unit</directory>
+        </testsuite>
+        <testsuite name="functional">
+            <directory>./web/modules/custom/*/tests/src/Functional</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

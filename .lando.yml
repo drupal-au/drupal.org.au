@@ -1,0 +1,40 @@
+# Change this name to something that makes sense for your project
+name: sol
+
+# Use the recipe appropriate for your application.
+recipe: drupal8
+
+compose:
+  - docker-compose.yml
+
+config:
+  via: nginx
+  webroot: web
+  php: 7.1
+  database: mariadb:10.0
+
+proxy:
+  nginx:
+    - drupal-org-au.lndo.site
+
+services:
+
+  sql:
+    type: mariadb:10.1
+    creds:
+      user: drupal
+      password: drupal
+      database: drupal
+    portforward: 3307
+
+  appserver:
+    run:
+      - "mkdir -p /var/www/.platformsh && mkdir -p /var/www/.platformsh/bin"
+      - "curl -fsSL -o /var/www/.platformsh/bin/platform https://github.com/platformsh/platformsh-cli/releases/download/v3.33.6/platform.phar"
+      - "chmod ug+x /var/www/.platformsh/bin/platform"
+      - "cd $LANDO_MOUNT && composer install"
+    xdebug: true
+    overrides:
+      services:
+        environment:
+          BEHAT_PARAMS: '{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://nginx/"}, "Drupal\\DrupalExtension" : {"drush" :   {  "root":  "/app/web" }}}}'
