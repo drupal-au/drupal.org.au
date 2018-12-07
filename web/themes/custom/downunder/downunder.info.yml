@@ -6,8 +6,8 @@ base theme: stable
 screenshot: screenshot.png
 #logo: logo.png
 
-#libraries:
-#  - downunder/global-css
+libraries:
+  - downunder/global-css
 #  - downunder/global-js
 #
 #libraries-override:
