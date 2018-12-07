@@ -1,0 +1,13 @@
+#Platform.sh is currently prod until GovCMS is ready.
+prod:
+  root: /app/web
+  platformsh-cli-auto-remove: true
+  user: ifp2pzrqcgpdg-master-7rqtwti--app
+  host: ssh.au.platform.sh
+  uri: 'https://www.master-7rqtwti-ifp2pzrqcgpdg.au.platformsh.site/'
+develop:
+  root: /app/web
+  platformsh-cli-auto-remove: true
+  user: ifp2pzrqcgpdg-develop-w6wvm5a--app
+  host: ssh.au.platform.sh
+  uri: 'https://develop-7rqtwti-x5zolfyev5kgy.au.platformsh.site/'

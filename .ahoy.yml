@@ -5,8 +5,8 @@ commands:
     usage: Installs dependencies (drupal, patternlab)
     cmd: |
       composer install
-      composer install -d ./docroot/themes/custom/autheme/patternlab
-      cd ./docroot/themes/custom/autheme/patternlab && npm install
+      composer install -d ./docroot/themes/custom/downunder/patternlab
+      cd ./docroot/themes/custom/downunder/patternlab && npm install
   ccex:
     usage: Exports remote config locally, ready to commit
     cmd: lando drush "sql-sync @prod @self --yes" && lando drush "cex --yes"

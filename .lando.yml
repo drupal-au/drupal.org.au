@@ -1,15 +1,16 @@
 # Change this name to something that makes sense for your project
-name: sol
+name: drupalau
 
 # Use the recipe appropriate for your application.
 recipe: drupal8
 
 compose:
-  - docker-compose.yml
+  - scripts/lando/docker-compose-extra.yml
 
 config:
   via: nginx
   webroot: web
+  drush: composer
   php: 7.1
   database: mariadb:10.0
 

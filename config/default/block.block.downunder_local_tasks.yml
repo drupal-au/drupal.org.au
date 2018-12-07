@@ -1,0 +1,22 @@
+uuid: 03f4a4da-e24e-45e3-ac5c-18ae9aae9061
+langcode: en
+status: true
+dependencies:
+  theme:
+    - downunder
+_core:
+  default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
+id: downunder_local_tasks
+theme: downunder
+region: content
+weight: -20
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

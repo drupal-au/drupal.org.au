@@ -1,0 +1,8 @@
+#global-js:
+#  js:
+#    patternlab/source/dist/js/app.js: {}
+#
+#global-css:
+#  css:
+#    theme:
+#      patternlab/source/dist/css/style.css: {}

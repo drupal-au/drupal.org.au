@@ -1,0 +1,33 @@
+name: DownUnder
+type: theme
+description: DownUnder Theme
+core: 8.x
+base theme: stable
+#screenshot: screenshot.png
+#logo: logo.png
+
+#libraries:
+#  - downunder/global-css
+#  - downunder/global-js
+#
+#libraries-override:
+#  core/drupal.dialog.off_canvas:
+#    css:
+#      base:
+#        # @see off-canvas.scss for a detailed explanation of why this has been removed.
+#        /core/themes/stable/css/core/dialog/off-canvas.reset.css: false
+#        /core/themes/stable/css/core/dialog/off-canvas.base.css: false
+#
+#component-libraries:
+#  components:
+#    paths:
+#      - patternlab/source/_patterns
+
+regions:
+  header: Header
+  nav: Navigation
+  breadcrumb: Breadcrumb
+  feature: Feature
+  content: Content
+  sidebar: Sidebar
+  footer: Footer

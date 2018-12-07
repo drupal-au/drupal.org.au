@@ -1,0 +1,22 @@
+uuid: 600f8a9d-6f54-40a0-a771-a873997c2b22
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - downunder
+_core:
+  default_config_hash: 4QlSnWBcxxKMIFRM8sbu_MjSkcp3NjGgnVrc-lynQHI
+id: downunder_login
+theme: downunder
+region: header
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }
