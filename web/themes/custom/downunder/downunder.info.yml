@@ -3,7 +3,7 @@ type: theme
 description: DownUnder Theme
 core: 8.x
 base theme: stable
-#screenshot: screenshot.png
+screenshot: screenshot.png
 #logo: logo.png
 
 #libraries:
