@@ -41,7 +41,7 @@ hooks:
         cd /app/web
         drush -y -l default cache-rebuild
         drush -y -l default updatedb
-        drush -y -l default config-import
+        # drush -y -l default config-import
         drush -y -l default entup || true;
 
 web:
